@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs/operators';
 import { Product } from '../common/product';
-// import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,3 +25,4 @@ interface GetResponse{
     products: Product[];
   }
 }
+
