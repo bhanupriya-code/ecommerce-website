@@ -4,18 +4,30 @@
             <div class="row">
 
 
-            <!--loop over the collection of product-->
+                <!--loop over the collection of product-->
 
-           <div *ngFor = "let tempProduct of products" class="col-md-3">
+                <div *ngFor="let tempProduct of products" class="col-md-3">
 
-            <div class="product-box">
-                <img src="{{tempProduct.imageUrl}}" class="image-responsive">
-                <h1>{{tempProduct.name}}</h1>
-                <div class="price">{{tempProduct.unitPrice | currency :'USD'}}</div>
-                <a href="#" class="primary-btn">Add To Cart</a>
-            </div>
-           </div>
+                    <div class="product-box">
+
+                        <a routerLink="/product/{{ tempProduct.id }}">
+                            <img src="{{tempProduct.imageUrl}}" class="image-responsive">
+                        </a>
+
+                        <a routerLink="/product/{{ tempProduct.id }}">
+                            <h1>{{tempProduct.name}}</h1>
+                        </a>
+
+                        <div class="price">{{tempProduct.unitPrice | currency :'USD'}}</div>
+                        <a href="#" class="primary-btn">Add To Cart</a>
+                    </div>
+                </div>
+
+                <!--product not found-->
+                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12 role = " alert">
+                    No Products Found
+                </div>
+
             </div>
         </div>
     </div>
-</div>
